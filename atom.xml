@@ -90,9 +90,9 @@
     <link href="http://http://tangfuhao.github.io/2016/03/03/Hexo%E5%86%99%E5%8D%9A%E5%AE%A2%E9%9C%80%E8%A6%81%E7%9A%84%E6%89%80%E6%9C%89%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     <id>http://http://tangfuhao.github.io/2016/03/03/Hexo写博客需要的所有知识总结/</id>
     <published>2016-03-03T12:45:19.000Z</published>
-    <updated>2016-03-03T13:54:38.000Z</updated>
+    <updated>2016-03-04T03:35:22.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;了解Hexo&quot;&gt;&lt;a href=&quot;#了解Hexo&quot; class=&quot;headerlink&quot; title=&quot;了解Hexo&quot;&gt;&lt;/a&gt;了解Hexo&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://wiki.jikexueyuan.com/project/hexo-document/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo命令大全&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h3 id=&quot;了解Hexo&quot;&gt;&lt;a href=&quot;#了解Hexo&quot; class=&quot;headerlink&quot; title=&quot;了解Hexo&quot;&gt;&lt;/a&gt;了解Hexo&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/199295&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo Docs&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://wiki.jikexueyuan.com/project/hexo-document/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo命令大全&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;了解markdown语法&quot;&gt;&lt;a href=&quot;#了解markdown语法&quot; class=&quot;headerlink&quot; title=&quot;了解markdown语法&quot;&gt;&lt;/a&gt;了解markdown语法&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.appinn.com/markdown/basic.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;makedown语法简明版&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.appinn.com/markdown/basic.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;makedown语法完整版&lt;/a&gt;&lt;/li&gt;
@@ -104,11 +104,14 @@
 &lt;li&gt;文本编辑神器 sublime text2&lt;/li&gt;
 &lt;li&gt;sublime makedown插件&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;mou(mac环境)&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;了解Hexo&quot;&gt;&lt;a href=&quot;#了解Hexo&quot; class=&quot;headerlink&quot; title=&quot;了解Hexo&quot;&gt;&lt;/a&gt;了解Hexo&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://wiki.jikexueyuan.com/project/hexo-docu
+      &lt;h3 id=&quot;了解Hexo&quot;&gt;&lt;a href=&quot;#了解Hexo&quot; class=&quot;headerlink&quot; title=&quot;了解Hexo&quot;&gt;&lt;/a&gt;了解Hexo&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/199295&quot; tar
     
     </summary>
     
@@ -154,7 +157,7 @@
     <link href="http://http://tangfuhao.github.io/2016/03/03/Mac%E4%B8%8B%E6%90%AD%E5%BB%BAHexo-Github%E5%8D%9A%E5%AE%A2/"/>
     <id>http://http://tangfuhao.github.io/2016/03/03/Mac下搭建Hexo-Github博客/</id>
     <published>2016-03-03T08:30:19.000Z</published>
-    <updated>2016-03-04T03:30:02.000Z</updated>
+    <updated>2016-03-04T03:36:46.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;感想，第一篇日记&quot;&gt;&lt;a href=&quot;#感想，第一篇日记&quot; class=&quot;headerlink&quot; title=&quot;感想，第一篇日记&quot;&gt;&lt;/a&gt;感想，第一篇日记&lt;/h2&gt;&lt;blockquote&gt;&lt;p&gt;做技术5年多了,其间有多次想好好写博客，一直没有坚持下来，中间断断续续使用过一些博客产品都没有坚持。&lt;br&gt;最近看了一博文，感触很深，所以决定重新开启博客之旅，并好好坚持下去。&lt;br&gt;一来是，给自己技术学习的一种积累，梳理。&lt;br&gt;二来，提高自己书面表达能力，前几年书没有觉得，现在是觉得自己表达能力真的出了问题。&lt;br&gt;之前就有使用过github搭建博客，不过之前使用的是Octopress，然后也是跟风，搭完就没用了。&lt;br&gt;这次看了文章&lt;a href=&quot;http://bbs.ruoren.com/thread-35485316-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《我为什么坚持写博客》&lt;/a&gt;目标是每周至少3篇认真原创文章。&lt;br&gt;好，废话不多说，开始。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -166,7 +169,7 @@
 &lt;pre&gt;&lt;code&gt;$ brew install git
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;安装-node-js&quot;&gt;&lt;a href=&quot;#安装-node-js&quot; class=&quot;headerlink&quot; title=&quot;安装 node.js&quot;&gt;&lt;/a&gt;安装 node.js&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;$ brew install node
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;安装-hexo&quot;&gt;&lt;a href=&quot;#安装-hexo&quot; class=&quot;headerlink&quot; title=&quot;安装 hexo&quot;&gt;&lt;/a&gt;安装 hexo&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;$ npm install -g hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;这里的npm是node下的一个包管理工具。&lt;/em&gt;&lt;br&gt;&lt;em&gt;－g命令代表全局安装，否则安装到命令执行时当前.／node_modules目录。&lt;/em&gt;&lt;br&gt;&lt;em&gt;－g会安装到{prefix}／node_modules目录。prefix是默认制定的，一般在prefix = “/usr/local”&lt;/em&gt;&lt;br&gt;&lt;em&gt;命令 npm config ls 可查看 prefix&lt;/em&gt;&lt;br&gt;&lt;em&gt;命令 npm config set prefix “xxxxx” 可以指定prefix目录，不建议修改&lt;/em&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里的npm是node下的一个包管理工具。&lt;br&gt;－g命令代表全局安装，否则安装到命令执行时当前.／node_modules目录。&lt;br&gt;－g会安装到{prefix}／node_modules目录。prefix是默认制定的，一般在prefix = “/usr/local”&lt;br&gt;命令 npm config ls 可查看 prefix&lt;br&gt;命令 npm config set prefix “xxxxx” 可以指定prefix目录（不建议修改）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;到此为止，安装完毕&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;这里可能出现一些问题，可能由于权限问题，如果是，在命令前加sudo。&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;安装博客-调试&quot;&gt;&lt;a href=&quot;#安装博客-调试&quot; class=&quot;headerlink&quot; title=&quot;安装博客,调试&quot;&gt;&lt;/a&gt;安装博客,调试&lt;/h2&gt;&lt;h3 id=&quot;创建博客&quot;&gt;&lt;a href=&quot;#创建博客&quot; class=&quot;headerlink&quot; title=&quot;创建博客&quot;&gt;&lt;/a&gt;创建博客&lt;/h3&gt;&lt;p&gt;创建本地一个目录，用来创建博客，比如&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ mkdir hexo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ cd hexo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ sudo hexo init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;创建完毕！&lt;/p&gt;
 &lt;h3 id=&quot;本地调试&quot;&gt;&lt;a href=&quot;#本地调试&quot; class=&quot;headerlink&quot; title=&quot;本地调试&quot;&gt;&lt;/a&gt;本地调试&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo hexo server&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INFO  Start processing&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -177,7 +180,7 @@
 &lt;h2 id=&quot;发布到github&quot;&gt;&lt;a href=&quot;#发布到github&quot; class=&quot;headerlink&quot; title=&quot;发布到github&quot;&gt;&lt;/a&gt;发布到github&lt;/h2&gt;&lt;p&gt;&lt;em&gt;需要注册github帐号，这个很简单略过&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id=&quot;设置github帐号ssh验证-可以跳过&quot;&gt;&lt;a href=&quot;#设置github帐号ssh验证-可以跳过&quot; class=&quot;headerlink&quot; title=&quot;设置github帐号ssh验证(可以跳过)&quot;&gt;&lt;/a&gt;设置github帐号ssh验证(可以跳过)&lt;/h3&gt;&lt;p&gt;首先需要在本机设置ssh key以保证push工程时不需要在授权,如果没有设置，也会在发布时要求输入帐号密码&lt;/p&gt;
 &lt;h3 id=&quot;利用github二级域名-创建资源&quot;&gt;&lt;a href=&quot;#利用github二级域名-创建资源&quot; class=&quot;headerlink&quot; title=&quot;利用github二级域名 创建资源&quot;&gt;&lt;/a&gt;利用github二级域名 创建资源&lt;/h3&gt;&lt;p&gt;github会提供以用户名创建的二级域名，例如：yourusername.github.com&lt;br&gt;用法是需要创建一个名称为yourusername.github.io的资源&lt;br&gt;比如我的用户名为tangfuhao所以创建一个tangfuhao.github.io的资源&lt;br&gt;然后当发布完资源后可以通过yourusername.github.com或者yourusername.github.io来访问网站&lt;/p&gt;
-&lt;p&gt;具体过程略过。&lt;/p&gt;
+&lt;p&gt;创建资源过程略过。&lt;/p&gt;
 &lt;h3 id=&quot;安装发布插件&quot;&gt;&lt;a href=&quot;#安装发布插件&quot; class=&quot;headerlink&quot; title=&quot;安装发布插件&quot;&gt;&lt;/a&gt;安装发布插件&lt;/h3&gt;&lt;p&gt;在博客文件夹运行下面命令，来安装git部署的工具&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ npm install hexo-deployer-git --save
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后在_config.yml文件修改发布的配置，最后一行改为（注意替换yourusername）&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  repo: https://github.com/yourusername/yourusername.github.com.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -189,12 +192,11 @@
 &lt;pre&gt;&lt;code&gt;sudo hexo d -g
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果改动了站点的源码，需要在发布之前&lt;br&gt;    $ sudo hexo clean&lt;/p&gt;
 &lt;p&gt;如果成功了就可以通过yourusername.github.com或者yourusername.github.io来访问你的博客了&lt;/p&gt;
-&lt;h2 id=&quot;自定义博客&quot;&gt;&lt;a href=&quot;#自定义博客&quot; class=&quot;headerlink&quot; title=&quot;自定义博客&quot;&gt;&lt;/a&gt;自定义博客&lt;/h2&gt;&lt;h3 id=&quot;更换主题&quot;&gt;&lt;a href=&quot;#更换主题&quot; class=&quot;headerlink&quot; title=&quot;更换主题&quot;&gt;&lt;/a&gt;更换主题&lt;/h3&gt;&lt;p&gt;如果你对默认的皮肤不满意，可以通过克隆的方式，把别人的主题克隆过来,比如我使用的这一套&lt;/p&gt;
+&lt;h2 id=&quot;自定义博客&quot;&gt;&lt;a href=&quot;#自定义博客&quot; class=&quot;headerlink&quot; title=&quot;自定义博客&quot;&gt;&lt;/a&gt;自定义博客&lt;/h2&gt;&lt;h3 id=&quot;更换主题&quot;&gt;&lt;a href=&quot;#更换主题&quot; class=&quot;headerlink&quot; title=&quot;更换主题&quot;&gt;&lt;/a&gt;更换主题&lt;/h3&gt;&lt;p&gt;如果你对默认的主题不满意，可以通过克隆的方式，把别人的主题克隆过来,比如我使用的这一套&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/iissnan/hexo-theme-next.git themes/next
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后在_config.yml中theme选项下 指定主题，比如我指定为&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;theme: next
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更多的主题可以&lt;a href=&quot;https://www.zhihu.com/question/24422335&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;更详细的hexo用法&quot;&gt;&lt;a href=&quot;#更详细的hexo用法&quot; class=&quot;headerlink&quot; title=&quot;更详细的hexo用法&quot;&gt;&lt;/a&gt;更详细的hexo用法&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://wiki.jikexueyuan.com/project/hexo-document/commands.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://wiki.jikexueyuan.com/project/hexo-document/commands.html&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">

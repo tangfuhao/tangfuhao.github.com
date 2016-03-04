@@ -515,7 +515,7 @@
       
         
           
-            <h3 id="了解Hexo"><a href="#了解Hexo" class="headerlink" title="了解Hexo"></a>了解Hexo</h3><p><a href="http://wiki.jikexueyuan.com/project/hexo-document/" target="_blank" rel="external">Hexo命令大全</a></p>
+            <h3 id="了解Hexo"><a href="#了解Hexo" class="headerlink" title="了解Hexo"></a>了解Hexo</h3><p><a href="http://www.ituring.com.cn/article/199295" target="_blank" rel="external">Hexo Docs</a><br><a href="http://wiki.jikexueyuan.com/project/hexo-document/" target="_blank" rel="external">Hexo命令大全</a></p>
 <h3 id="了解markdown语法"><a href="#了解markdown语法" class="headerlink" title="了解markdown语法"></a>了解markdown语法</h3><ul>
 <li><a href="http://www.appinn.com/markdown/basic.html" target="_blank" rel="external">makedown语法简明版</a></li>
 <li><a href="http://www.appinn.com/markdown/basic.html" target="_blank" rel="external">makedown语法完整版</a></li>
@@ -527,6 +527,9 @@
 <li>文本编辑神器 sublime text2</li>
 <li>sublime makedown插件</li>
 </ol>
+<ul>
+<li>mou(mac环境)</li>
+</ul>
 
           
         
@@ -765,7 +768,7 @@
 <pre><code>$ brew install git
 </code></pre><h3 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h3><pre><code>$ brew install node
 </code></pre><h3 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h3><pre><code>$ npm install -g hexo
-</code></pre><p><em>这里的npm是node下的一个包管理工具。</em><br><em>－g命令代表全局安装，否则安装到命令执行时当前.／node_modules目录。</em><br><em>－g会安装到{prefix}／node_modules目录。prefix是默认制定的，一般在prefix = “/usr/local”</em><br><em>命令 npm config ls 可查看 prefix</em><br><em>命令 npm config set prefix “xxxxx” 可以指定prefix目录，不建议修改</em></p>
+</code></pre><p>这里的npm是node下的一个包管理工具。<br>－g命令代表全局安装，否则安装到命令执行时当前.／node_modules目录。<br>－g会安装到{prefix}／node_modules目录。prefix是默认制定的，一般在prefix = “/usr/local”<br>命令 npm config ls 可查看 prefix<br>命令 npm config set prefix “xxxxx” 可以指定prefix目录（不建议修改）</p>
 <p><strong>到此为止，安装完毕</strong><br><strong>这里可能出现一些问题，可能由于权限问题，如果是，在命令前加sudo。</strong></p>
 <h2 id="安装博客-调试"><a href="#安装博客-调试" class="headerlink" title="安装博客,调试"></a>安装博客,调试</h2><h3 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h3><p>创建本地一个目录，用来创建博客，比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir hexo</span><br><span class="line">$ cd hexo</span><br><span class="line">$ sudo hexo init</span><br></pre></td></tr></table></figure><br>创建完毕！</p>
 <h3 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo server</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
@@ -776,7 +779,7 @@
 <h2 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h2><p><em>需要注册github帐号，这个很简单略过</em></p>
 <h3 id="设置github帐号ssh验证-可以跳过"><a href="#设置github帐号ssh验证-可以跳过" class="headerlink" title="设置github帐号ssh验证(可以跳过)"></a>设置github帐号ssh验证(可以跳过)</h3><p>首先需要在本机设置ssh key以保证push工程时不需要在授权,如果没有设置，也会在发布时要求输入帐号密码</p>
 <h3 id="利用github二级域名-创建资源"><a href="#利用github二级域名-创建资源" class="headerlink" title="利用github二级域名 创建资源"></a>利用github二级域名 创建资源</h3><p>github会提供以用户名创建的二级域名，例如：yourusername.github.com<br>用法是需要创建一个名称为yourusername.github.io的资源<br>比如我的用户名为tangfuhao所以创建一个tangfuhao.github.io的资源<br>然后当发布完资源后可以通过yourusername.github.com或者yourusername.github.io来访问网站</p>
-<p>具体过程略过。</p>
+<p>创建资源过程略过。</p>
 <h3 id="安装发布插件"><a href="#安装发布插件" class="headerlink" title="安装发布插件"></a>安装发布插件</h3><p>在博客文件夹运行下面命令，来安装git部署的工具</p>
 <pre><code>$ npm install hexo-deployer-git --save
 </code></pre><p>然后在_config.yml文件修改发布的配置，最后一行改为（注意替换yourusername）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/yourusername/yourusername.github.com.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
@@ -788,12 +791,11 @@
 <pre><code>sudo hexo d -g
 </code></pre><p>如果改动了站点的源码，需要在发布之前<br>    $ sudo hexo clean</p>
 <p>如果成功了就可以通过yourusername.github.com或者yourusername.github.io来访问你的博客了</p>
-<h2 id="自定义博客"><a href="#自定义博客" class="headerlink" title="自定义博客"></a>自定义博客</h2><h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>如果你对默认的皮肤不满意，可以通过克隆的方式，把别人的主题克隆过来,比如我使用的这一套</p>
+<h2 id="自定义博客"><a href="#自定义博客" class="headerlink" title="自定义博客"></a>自定义博客</h2><h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>如果你对默认的主题不满意，可以通过克隆的方式，把别人的主题克隆过来,比如我使用的这一套</p>
 <pre><code>git clone https://github.com/iissnan/hexo-theme-next.git themes/next
 </code></pre><p>然后在_config.yml中theme选项下 指定主题，比如我指定为</p>
 <pre><code>theme: next
 </code></pre><p>更多的主题可以<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">参考</a></p>
-<h3 id="更详细的hexo用法"><a href="#更详细的hexo用法" class="headerlink" title="更详细的hexo用法"></a>更详细的hexo用法</h3><p><a href="http://wiki.jikexueyuan.com/project/hexo-document/commands.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/hexo-document/commands.html</a></p>
 
           
         
