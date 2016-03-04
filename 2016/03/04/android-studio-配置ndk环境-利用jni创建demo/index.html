@@ -69,7 +69,7 @@ an">
 <meta property="og:description" content="环境说明mac os 10.11.2
 http://tools.android.com/tech-docs/new-build-system/gradle-experimental#TOC-No-support-for-using-a-NDK-modules-like-cpu_featuresNo-support-for-integrating-external-build-systems.
 an">
-<meta property="og:updated_time" content="2016-03-04T08:04:37.000Z">
+<meta property="og:updated_time" content="2016-03-04T08:31:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android studio 配置ndk环境 利用jni创建demo">
 <meta name="twitter:description" content="环境说明mac os 10.11.2
@@ -348,6 +348,68 @@ an">
 <p>apply plugin: ‘com.android.application’ 修改为 apply plugin: ‘com.android.model.application’<br>apply plugin: ‘com.android.library’ 修改为 apply plugin: ‘com.android.model.library’</p>
 <p>android.buildTypes 移入 model</p>
 <p>配置设置加入 “＝”</p>
+<p>apply plugin: ‘com.android.model.application’</p>
+<p>model{<br>    android {<br>        compileSdkVersion 23<br>        buildToolsVersion “23.0.2”</p>
+<pre><code>    defaultConfig {
+        applicationId &quot;sqlite3.com.android.tang.androidnativesqlite3&quot;
+        minSdkVersion.apiLevel 15
+        targetSdkVersion.apiLevel 23
+        versionCode 1
+        versionName &quot;1.0&quot;
+
+        buildConfigFields {
+            create() {
+                type &quot;int&quot;
+                name &quot;VALUE&quot;
+                value &quot;1&quot;
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles.add(file(&quot;proguard-rules.pro&quot;))
+        }
+    }
+
+    productFlavors {
+        create(&quot;flavor1&quot;) {
+            applicationId &quot;com.app&quot;
+        }
+    }
+
+    // Configures source set directory.
+    sources {
+        main {
+            java {
+                source {
+                    srcDir &quot;src&quot;
+                }
+            }
+        }
+    }
+}
+</code></pre><p>}</p>
+<p>dependencies {<br>    compile fileTree(dir: ‘libs’, include: [‘*.jar’])<br>    testCompile ‘junit:junit:4.12’<br>    compile ‘com.android.support:appcompat-v7:23.1.1’<br>    compile ‘com.android.support:design:23.0.0’<br>}</p>
+<p>/////////////////////</p>
+<p>apply plugin: ‘com.android.application’</p>
+<p>android {<br>    compileSdkVersion 23<br>    buildToolsVersion “23.0.2”</p>
+<pre><code>defaultConfig {
+    applicationId &quot;sqlite3.com.android.tang.androidnativesqlite3&quot;
+    minSdkVersion 15
+    targetSdkVersion 23
+    versionCode 1
+    versionName &quot;1.0&quot;
+}
+
+buildTypes {
+release {
+    minifyEnabled false
+    proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;
+}
+</code></pre><p>}</p>
+<p>dependencies {<br>    compile fileTree(dir: ‘libs’, include: [‘*.jar’])<br>    testCompile ‘junit:junit:4.12’<br>    compile ‘com.android.support:appcompat-v7:23.1.1’<br>    compile ‘com.android.support:design:23.0.0’<br>}</p>
 
       
     </div>
