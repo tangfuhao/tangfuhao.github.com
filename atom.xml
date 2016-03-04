@@ -154,11 +154,9 @@
     <link href="http://http://tangfuhao.github.io/2016/03/03/Mac%E4%B8%8B%E6%90%AD%E5%BB%BAHexo-Github%E5%8D%9A%E5%AE%A2/"/>
     <id>http://http://tangfuhao.github.io/2016/03/03/Mac下搭建Hexo-Github博客/</id>
     <published>2016-03-03T08:30:19.000Z</published>
-    <updated>2016-03-04T02:27:40.000Z</updated>
+    <updated>2016-03-04T02:38:07.000Z</updated>
     
-    <content type="html">&lt;blockquote&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;感想，第一篇日记&quot;&gt;&lt;a href=&quot;#感想，第一篇日记&quot; class=&quot;headerlink&quot; title=&quot;感想，第一篇日记&quot;&gt;&lt;/a&gt;感想，第一篇日记&lt;/h2&gt;&lt;blockquote&gt;&lt;p&gt;做技术5年多了,其间有多次想好好写博客，一直没有坚持下来，中间断断续续使用过一些博客产品都没有坚持。&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;感想，第一篇日记&quot;&gt;&lt;a href=&quot;#感想，第一篇日记&quot; class=&quot;headerlink&quot; title=&quot;感想，第一篇日记&quot;&gt;&lt;/a&gt;感想，第一篇日记&lt;/h2&gt;&lt;blockquote&gt;&lt;p&gt;做技术5年多了,其间有多次想好好写博客，一直没有坚持下来，中间断断续续使用过一些博客产品都没有坚持。&lt;/p&gt;
 &lt;p&gt;最近看了一博文，感触很深，所以决定重新开启博客之旅，并好好坚持下去，&lt;/p&gt;
 &lt;p&gt;一来是，给自己技术学习的一种积累，梳理。&lt;/p&gt;
 &lt;p&gt;二来，提高自己书面表达能力，前几年书没有觉得，现在是觉得自己表达能力真的出了问题。&lt;/p&gt;
@@ -168,7 +166,7 @@
 &lt;h2 id=&quot;准备工作，从零开始&quot;&gt;&lt;a href=&quot;#准备工作，从零开始&quot; class=&quot;headerlink&quot; title=&quot;准备工作，从零开始&quot;&gt;&lt;/a&gt;准备工作，从零开始&lt;/h2&gt;&lt;p&gt;Hexo是一款基于Node.js的静态博客框架，而Node.js可以简单理解为可以用js语言写服务器后端的框架。&lt;/p&gt;
 &lt;p&gt;然后如果要发布到github上需要git和github帐号。&lt;/p&gt;
 &lt;p&gt;因为用的是mac环境，所以直接用Homebrew（这是mac下超强的包管理工具，基本开发人员必备）来安装。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;如果有安装过可以跳过步骤&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果有安装过可以跳过步骤&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;安装-Homebrew&quot;&gt;&lt;a href=&quot;#安装-Homebrew&quot; class=&quot;headerlink&quot; title=&quot;安装 Homebrew&quot;&gt;&lt;/a&gt;安装 Homebrew&lt;/h3&gt;&lt;p&gt;命令行直接输入&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ruby -e “$(curl -fsSL &lt;a href=&quot;https://raw.github.com/Homebrew/homebrew/go/install)”&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://raw.github.com/Homebrew/homebrew/go/install)”&lt;/a&gt;&lt;/p&gt;
@@ -181,81 +179,162 @@
 &lt;p&gt;brew install node&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;安装-hexo&quot;&gt;&lt;a href=&quot;#安装-hexo&quot; class=&quot;headerlink&quot; title=&quot;安装 hexo&quot;&gt;&lt;/a&gt;安装 hexo&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;npm install -g hexo&lt;br&gt;&lt;em&gt;这里的npm是node下的一个包管理工具。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;npm install -g hexo&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;这里的npm是node下的一个包管理工具。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;－g命令代表全局安装，否则安装到命令执行时当前.／node_modules目录。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;－g会安装到{prefix}／node_modules目录。prefix是默认制定的，一般在prefix = “/usr/local”&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;命令 npm config ls 可查看 prefix&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;命令 npm config set prefix “xxxxx” 可以指定prefix目录，不建议修改&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;到此为止，安装完毕&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这里可能出现一些问题，可能由于权限问题，如果是，在命令前加sudo。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;创建博客，本地调试&quot;&gt;&lt;a href=&quot;#创建博客，本地调试&quot; class=&quot;headerlink&quot; title=&quot;创建博客，本地调试&quot;&gt;&lt;/a&gt;创建博客，本地调试&lt;/h2&gt;&lt;h3 id=&quot;创建博客&quot;&gt;&lt;a href=&quot;#创建博客&quot; class=&quot;headerlink&quot; title=&quot;创建博客&quot;&gt;&lt;/a&gt;创建博客&lt;/h3&gt;&lt;p&gt;创建本地一个目录，用来创建博客，比如&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;:~ user$ mkdir hexo&lt;/p&gt;
-&lt;p&gt;:~ user$ cd hexo&lt;/p&gt;
-&lt;p&gt;:~ user$ sudo hexo init&lt;/p&gt;
+&lt;h2 id=&quot;安装博客-调试&quot;&gt;&lt;a href=&quot;#安装博客-调试&quot; class=&quot;headerlink&quot; title=&quot;安装博客,调试&quot;&gt;&lt;/a&gt;安装博客,调试&lt;/h2&gt;&lt;h3 id=&quot;创建博客&quot;&gt;&lt;a href=&quot;#创建博客&quot; class=&quot;headerlink&quot; title=&quot;创建博客&quot;&gt;&lt;/a&gt;创建博客&lt;/h3&gt;&lt;p&gt;创建本地一个目录，用来创建博客，比如&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;$ mkdir hexo&lt;/p&gt;
+&lt;p&gt;$ cd hexo&lt;/p&gt;
+&lt;p&gt;$ sudo hexo init&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;创建完毕！&lt;/p&gt;
-&lt;h3 id=&quot;本地调试&quot;&gt;&lt;a href=&quot;#本地调试&quot; class=&quot;headerlink&quot; title=&quot;本地调试&quot;&gt;&lt;/a&gt;本地调试&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;:~ user$ user$ sudo hexo server&lt;/p&gt;
+&lt;h3 id=&quot;本地调试&quot;&gt;&lt;a href=&quot;#本地调试&quot; class=&quot;headerlink&quot; title=&quot;本地调试&quot;&gt;&lt;/a&gt;本地调试&lt;/h3&gt;&lt;blockquote&gt;&lt;p&gt;$ sudo hexo server&lt;/p&gt;
+&lt;p&gt;INFO  Start processing&lt;/p&gt;
+&lt;p&gt;INFO  Hexo is running at &lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt;. Press Ctrl+C to stop.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;或者，缩写&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;:~ user$ sudo hexo s&lt;/p&gt;
-&lt;p&gt;INFO  Start processing&lt;br&gt;INFO  Hexo is running at &lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt;. Press Ctrl+C to stop.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;$ sudo hexo s&lt;/p&gt;
+&lt;p&gt;INFO  Start processing&lt;/p&gt;
+&lt;p&gt;INFO  Hexo is running at &lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt;. Press Ctrl+C to stop.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;然后可以访问 &lt;a href=&quot;http://localhost:4000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000&lt;/a&gt; 来查看结果&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注意如果访问一直没响应 可能有端口占用问题，可以运行下面命令指定端口&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;:~ user$ sudo hexo server -p xxxx&lt;/p&gt;
+&lt;p&gt;$ sudo hexo server -p xxxx&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;更多hexo命令用法，可以查看我的&lt;a href=&quot;http://tangfuhao.github.io/2016/03/03/Hexo%E5%86%99%E5%8D%9A%E5%AE%A2%E9%9C%80%E8%A6%81%E7%9A%84%E6%89%80%E6%9C%89%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo写博客需要的所有知识总结&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;发布到github&quot;&gt;&lt;a href=&quot;#发布到github&quot; class=&quot;headerlink&quot; title=&quot;发布到github&quot;&gt;&lt;/a&gt;发布到github&lt;/h2&gt;&lt;p&gt;首先需要注册github帐号，这个很简单略过&lt;/p&gt;
 &lt;h3 id=&quot;设置github帐号-ssh验证&quot;&gt;&lt;a href=&quot;#设置github帐号-ssh验证&quot; class=&quot;headerlink&quot; title=&quot;设置github帐号 ssh验证&quot;&gt;&lt;/a&gt;设置github帐号 ssh验证&lt;/h3&gt;&lt;p&gt;首先需要在本机设置ssh key以保证push工程时不需要在授权。&lt;/p&gt;
 &lt;p&gt;#### &lt;/p&gt;
-&lt;p&gt;安装必须的环境&lt;/p&gt;
-&lt;p&gt;Hexo是一款基于Node.js的静态博客框架，所以需要先安装Node.js。&lt;/p&gt;
-&lt;p&gt;安装Node.js和Hexo我用了Homebrew（这是mac下超强的包管理工具，基本开发人员必备）&lt;br&gt;最后发布到github上还需要git，同样可以直接用Homebrew安装。&lt;/p&gt;
-&lt;p&gt;所以安装顺序为 Homebrew －&amp;gt; git －&amp;gt; Node.js -&amp;gt; Hexo (其实很简单，5分钟就能搞定)&lt;/p&gt;
-&lt;p&gt;如果有安装过可以跳过&lt;/p&gt;
-&lt;p&gt;安装Homebrew&lt;br&gt;ruby -e “$(curl -fsSL &lt;a href=&quot;https://raw.github.com/Homebrew/homebrew/go/install)”&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://raw.github.com/Homebrew/homebrew/go/install)”&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;安装git&lt;br&gt;brew install node&lt;/p&gt;
-&lt;p&gt;安装nodejs&lt;br&gt;brew install node&lt;/p&gt;
-&lt;p&gt;安装hexo&lt;br&gt;npm install -g hexo&lt;/p&gt;
-&lt;p&gt;这里的npm是node下的一个包管理工具。&lt;br&gt;－g命令代表全局安装，否则安装到命令执行时当前.／node_modules目录。&lt;br&gt;－g会安装到{prefix}／node_modules目录。prefix是默认制定的，一般在prefix = “/usr/local”&lt;br&gt;命令 npm config ls 可查看 prefix&lt;br&gt;命令 npm config set prefix “xxxxx” 可以指定prefix目录，不建议修改&lt;/p&gt;
-&lt;p&gt;安装发布到github的工具&lt;br&gt;npm install hexo-deployer-git –save&lt;/p&gt;
-&lt;p&gt;这里可能出现一些问题，可能由于权限问题，如果是，在命令前加sudo。&lt;/p&gt;
-&lt;p&gt;然后创建博客&lt;/p&gt;
-&lt;p&gt;选择一个你创建博客的本地目录，在当前目录运行命令：&lt;br&gt;sudo hexo init&lt;br&gt;创建完成！&lt;/p&gt;
-&lt;p&gt;本地测试访问hexo&lt;br&gt;当前目录执行命令：&lt;br&gt;sudo hexo server &lt;/p&gt;
-&lt;p&gt;INFO  Start processing&lt;br&gt;INFO  Hexo is running at &lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt;. Press Ctrl+C to stop.&lt;/p&gt;
-&lt;p&gt;然后在浏览器访问&lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt; 就应该可以看到结果&lt;/p&gt;
-&lt;p&gt;如果访问一直没响应 可能有端口占用问题，可以运行&lt;br&gt;sudo hexo server -p xxxx&lt;/p&gt;
-&lt;p&gt;然后在浏览器访问&lt;a href=&quot;http://localhost:xxxx/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:xxxx/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;发布到github &lt;/p&gt;
-&lt;p&gt;首先在github上需要创建一个以自己用户名的资源 像这样yourusername.github.io（如果你像我一样已经有了就不需要再创建），&lt;br&gt;将本地生成好的站点发布到这个资源，就可以通过这个域名 yourusername.github.com 或者 yourusername.github.io 来访问这个站点。&lt;br&gt;这个域名如何映射的，抱歉我也不知道，只知道这个规则。&lt;/p&gt;
-&lt;p&gt;然后配置本地博客文件夹中的_config.yml文件，这是一个配置文件，具体不表。&lt;br&gt;在最后一行是发布配置改为&lt;br&gt;deploy:&lt;br&gt;  type: git&lt;br&gt;  repo: &lt;a href=&quot;https://github.com/yourusername/yourusername.github.com.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/yourusername/yourusername.github.com.git&lt;/a&gt;&lt;br&gt;  branch: master&lt;/p&gt;
-&lt;p&gt;当前目录执行命令：&lt;br&gt;sudo hexo generate&lt;br&gt;sudo hexo deploy&lt;/p&gt;
-&lt;p&gt;完成生成和发布。&lt;/p&gt;
-&lt;p&gt;以后更新了文章 再执行命令，来更新站点&lt;br&gt;sudo hexo generate&lt;br&gt;sudo hexo deploy&lt;/p&gt;
-&lt;p&gt;或者简单的 sudo hexo d -g&lt;/p&gt;
-&lt;p&gt;如果改动了站点的源码，需要在发布之前&lt;br&gt;sudo hexo clean&lt;/p&gt;
-&lt;p&gt;具体hexo用法，在其他文章再介绍。&lt;/p&gt;
-&lt;p&gt;更换主题&lt;/p&gt;
-&lt;p&gt;如果你对默认的皮肤不满意，可以通过克隆的方式，把别人的主题克隆过来：&lt;br&gt;git clone &lt;a href=&quot;https://github.com/iissnan/hexo-theme-next.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/iissnan/hexo-theme-next.git&lt;/a&gt; themes/hueman&lt;/p&gt;
-&lt;p&gt;参考&lt;a href=&quot;https://www.zhihu.com/question/24422335&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.zhihu.com/question/24422335&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;关于github设置&lt;/p&gt;
-&lt;p&gt;1 注册github帐号&lt;/p&gt;
-&lt;p&gt;2 设置github ssh 验证&lt;/p&gt;
-&lt;p&gt;3 更新github帐号&lt;/p&gt;
-&lt;p&gt;4 修改发布文件git帐号&lt;/p&gt;
-&lt;p&gt;更详细的hexo用法&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://wiki.jikexueyuan.com/project/hexo-document/commands.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://wiki.jikexueyuan.com/project/hexo-document/commands.html&lt;/a&gt;&lt;/p&gt;
+
+
+安装必须的环境
+
+Hexo是一款基于Node.js的静态博客框架，所以需要先安装Node.js。
+
+安装Node.js和Hexo我用了Homebrew（这是mac下超强的包管理工具，基本开发人员必备）
+最后发布到github上还需要git，同样可以直接用Homebrew安装。
+
+所以安装顺序为 Homebrew －&gt; git －&gt; Node.js -&gt; Hexo (其实很简单，5分钟就能搞定)
+
+
+如果有安装过可以跳过
+
+安装Homebrew
+ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)”
+
+安装git
+brew install node
+
+安装nodejs 
+brew install node
+
+安装hexo
+npm install -g hexo
+
+这里的npm是node下的一个包管理工具。
+－g命令代表全局安装，否则安装到命令执行时当前.／node_modules目录。
+－g会安装到{prefix}／node_modules目录。prefix是默认制定的，一般在prefix = &quot;/usr/local&quot;
+命令 npm config ls 可查看 prefix
+命令 npm config set prefix &quot;xxxxx&quot; 可以指定prefix目录，不建议修改
+
+安装发布到github的工具
+npm install hexo-deployer-git --save
+
+这里可能出现一些问题，可能由于权限问题，如果是，在命令前加sudo。
+
+
+然后创建博客
+
+选择一个你创建博客的本地目录，在当前目录运行命令：
+sudo hexo init
+创建完成！
+
+本地测试访问hexo
+当前目录执行命令：
+sudo hexo server 
+
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+
+然后在浏览器访问http://localhost:4000/ 就应该可以看到结果
+
+如果访问一直没响应 可能有端口占用问题，可以运行
+sudo hexo server -p xxxx
+
+然后在浏览器访问http://localhost:xxxx/
+
+
+发布到github 
+
+首先在github上需要创建一个以自己用户名的资源 像这样yourusername.github.io（如果你像我一样已经有了就不需要再创建），
+将本地生成好的站点发布到这个资源，就可以通过这个域名 yourusername.github.com 或者 yourusername.github.io 来访问这个站点。
+这个域名如何映射的，抱歉我也不知道，只知道这个规则。
+
+然后配置本地博客文件夹中的_config.yml文件，这是一个配置文件，具体不表。
+在最后一行是发布配置改为
+deploy:
+  type: git
+  repo: https://github.com/yourusername/yourusername.github.com.git
+  branch: master
+
+当前目录执行命令：
+sudo hexo generate
+sudo hexo deploy
+
+完成生成和发布。
+
+
+以后更新了文章 再执行命令，来更新站点
+sudo hexo generate
+sudo hexo deploy
+
+或者简单的 sudo hexo d -g
+
+如果改动了站点的源码，需要在发布之前
+sudo hexo clean
+
+
+具体hexo用法，在其他文章再介绍。
+
+
+更换主题
+
+如果你对默认的皮肤不满意，可以通过克隆的方式，把别人的主题克隆过来：
+git clone https://github.com/iissnan/hexo-theme-next.git themes/hueman
+
+参考https://www.zhihu.com/question/24422335
+
+
+
+关于github设置
+
+1 注册github帐号
+
+2 设置github ssh 验证
+
+3 更新github帐号
+
+4 修改发布文件git帐号
+
+
+
+更详细的hexo用法
+
+http://wiki.jikexueyuan.com/project/hexo-document/commands.html
+
+
 </content>
     
     <summary type="html">
     
-      &lt;blockquote&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempo
+      &lt;h2 id=&quot;感想，第一篇日记&quot;&gt;&lt;a href=&quot;#感想，第一篇日记&quot; class=&quot;headerlink&quot; title=&quot;感想，第一篇日记&quot;&gt;&lt;/a&gt;感想，第一篇日记&lt;/h2&gt;&lt;blockquote&gt;&lt;p&gt;做技术5年多了,其间有多次想好好写博客，一直没有坚持下来，中间断断续
     
     </summary>
     
