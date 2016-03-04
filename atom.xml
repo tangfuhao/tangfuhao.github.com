@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://http://tangfuhao.github.io/"/>
-  <updated>2016-03-04T03:44:41.000Z</updated>
+  <updated>2016-03-04T08:04:37.000Z</updated>
   <id>http://http://tangfuhao.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android studio 配置ndk环境 利用jni创建demo</title>
+    <link href="http://http://tangfuhao.github.io/2016/03/04/android-studio-%E9%85%8D%E7%BD%AEndk%E7%8E%AF%E5%A2%83-%E5%88%A9%E7%94%A8jni%E5%88%9B%E5%BB%BAdemo/"/>
+    <id>http://http://tangfuhao.github.io/2016/03/04/android-studio-配置ndk环境-利用jni创建demo/</id>
+    <published>2016-03-04T06:59:43.000Z</published>
+    <updated>2016-03-04T08:04:37.000Z</updated>
+    
+    <content type="html">&lt;p&gt;环境说明&lt;br&gt;mac os 10.11.2&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://tools.android.com/tech-docs/new-build-system/gradle-experimental#TOC-No-support-for-using-a-NDK-modules-like-cpu_featuresNo-support-for-integrating-external-build-systems&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tools.android.com/tech-docs/new-build-system/gradle-experimental#TOC-No-support-for-using-a-NDK-modules-like-cpu_featuresNo-support-for-integrating-external-build-systems&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;android studio 在1.3 Beta1版本引入NDK支持 &lt;/p&gt;
+&lt;p&gt;我用的是目前最新版本的android studio 2.0 Beta5&lt;/p&gt;
+&lt;p&gt;ndk环境&lt;/p&gt;
+&lt;p&gt;修改gradle 和 gradle编译工具 &lt;/p&gt;
+&lt;p&gt;我这里用的是目前最新版的 https\://services.gradle.org/distributions/gradle-2.10-all.zip&lt;br&gt;旧版的gradle编译工具 com.android.tools.build:gradle-experimental:0.2.0&lt;/p&gt;
+&lt;p&gt;注意 gradle编译工具的版本对 gradle版本有兼容依赖的关系, 反则没有。&lt;/p&gt;
+&lt;p&gt;比如说最新的gradle-experimental:0.6.0-beta5 只有gradle-2.10-all.zip才能适用.&lt;br&gt;但我用最新的gradle-2.10-all.zip，用低版本的gradle-experimental:0.2.0没有关系，所以这点需要注意。&lt;/p&gt;
+&lt;p&gt;更新gradle设置可能需要下载新的文件，天朝网络可能被墙，请确保可以科学上网&lt;/p&gt;
+&lt;p&gt;修改应用的build.gradle和库的build.gradle&lt;/p&gt;
+&lt;p&gt;不同版本gradle编译工具 DSL写法不同，这里用的是最新版本的0.6.0-beta5&lt;br&gt;如果是以前版本写法可以参考官方 &lt;a href=&quot;https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/gradle-experimental/0-4-0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/gradle-experimental/0-4-0&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;现在各项配置都是有等号的，并且使用的是com.android.model.application而不再是原来的com.android.application，如果是Library，则是com.android.model.library。然后android外围包了一层model。。等等，看下面内容，注意变化。&lt;/p&gt;
+&lt;p&gt;修改变化：&lt;/p&gt;
+&lt;p&gt;application和library 被 model 包装&lt;/p&gt;
+&lt;p&gt;apply plugin: ‘com.android.application’ 修改为 apply plugin: ‘com.android.model.application’&lt;br&gt;apply plugin: ‘com.android.library’ 修改为 apply plugin: ‘com.android.model.library’&lt;/p&gt;
+&lt;p&gt;android.buildTypes 移入 model&lt;/p&gt;
+&lt;p&gt;配置设置加入 “＝”&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;环境说明&lt;br&gt;mac os 10.11.2&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://tools.android.com/tech-docs/new-build-system/gradle-experimental#TOC-No-support-for-using-a
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>markdown语法例子</title>
