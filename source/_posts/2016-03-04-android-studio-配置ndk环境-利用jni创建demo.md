@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 编译运行，搞定！
 
-
+代码在： https://github.com/tangfuhao/AndroidStudioJNIDemoForNDK10
 
 
 
