@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://http://tangfuhao.github.io/"/>
-  <updated>2016-03-04T08:31:50.000Z</updated>
+  <updated>2016-03-07T06:24:08.000Z</updated>
   <id>http://http://tangfuhao.github.io/</id>
   
   <author>
@@ -16,98 +16,126 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>android studio 配置ndk环境 利用jni创建demo</title>
-    <link href="http://http://tangfuhao.github.io/2016/03/04/android-studio-%E9%85%8D%E7%BD%AEndk%E7%8E%AF%E5%A2%83-%E5%88%A9%E7%94%A8jni%E5%88%9B%E5%BB%BAdemo/"/>
-    <id>http://http://tangfuhao.github.io/2016/03/04/android-studio-配置ndk环境-利用jni创建demo/</id>
-    <published>2016-03-04T06:59:43.000Z</published>
-    <updated>2016-03-04T08:31:50.000Z</updated>
+    <title>Android系统版本表速查</title>
+    <link href="http://http://tangfuhao.github.io/2016/03/07/Android%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E8%A1%A8%E9%80%9F%E6%9F%A5/"/>
+    <id>http://http://tangfuhao.github.io/2016/03/07/Android系统版本表速查/</id>
+    <published>2016-03-07T06:23:45.000Z</published>
+    <updated>2016-03-07T06:24:08.000Z</updated>
     
-    <content type="html">&lt;p&gt;环境说明&lt;br&gt;mac os 10.11.2&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://tools.android.com/tech-docs/new-build-system/gradle-experimental#TOC-No-support-for-using-a-NDK-modules-like-cpu_featuresNo-support-for-integrating-external-build-systems&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tools.android.com/tech-docs/new-build-system/gradle-experimental#TOC-No-support-for-using-a-NDK-modules-like-cpu_featuresNo-support-for-integrating-external-build-systems&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;android studio 在1.3 Beta1版本引入NDK支持 &lt;/p&gt;
-&lt;p&gt;我用的是目前最新版本的android studio 2.0 Beta5&lt;/p&gt;
-&lt;p&gt;ndk环境&lt;/p&gt;
-&lt;p&gt;修改gradle 和 gradle编译工具 &lt;/p&gt;
-&lt;p&gt;我这里用的是目前最新版的 https\://services.gradle.org/distributions/gradle-2.10-all.zip&lt;br&gt;旧版的gradle编译工具 com.android.tools.build:gradle-experimental:0.2.0&lt;/p&gt;
-&lt;p&gt;注意 gradle编译工具的版本对 gradle版本有兼容依赖的关系, 反则没有。&lt;/p&gt;
-&lt;p&gt;比如说最新的gradle-experimental:0.6.0-beta5 只有gradle-2.10-all.zip才能适用.&lt;br&gt;但我用最新的gradle-2.10-all.zip，用低版本的gradle-experimental:0.2.0没有关系，所以这点需要注意。&lt;/p&gt;
-&lt;p&gt;更新gradle设置可能需要下载新的文件，天朝网络可能被墙，请确保可以科学上网&lt;/p&gt;
-&lt;p&gt;修改应用的build.gradle和库的build.gradle&lt;/p&gt;
-&lt;p&gt;不同版本gradle编译工具 DSL写法不同，这里用的是最新版本的0.6.0-beta5&lt;br&gt;如果是以前版本写法可以参考官方 &lt;a href=&quot;https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/gradle-experimental/0-4-0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/gradle-experimental/0-4-0&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;现在各项配置都是有等号的，并且使用的是com.android.model.application而不再是原来的com.android.application，如果是Library，则是com.android.model.library。然后android外围包了一层model。。等等，看下面内容，注意变化。&lt;/p&gt;
-&lt;p&gt;修改变化：&lt;/p&gt;
-&lt;p&gt;application和library 被 model 包装&lt;/p&gt;
-&lt;p&gt;apply plugin: ‘com.android.application’ 修改为 apply plugin: ‘com.android.model.application’&lt;br&gt;apply plugin: ‘com.android.library’ 修改为 apply plugin: ‘com.android.model.library’&lt;/p&gt;
-&lt;p&gt;android.buildTypes 移入 model&lt;/p&gt;
-&lt;p&gt;配置设置加入 “＝”&lt;/p&gt;
-&lt;p&gt;apply plugin: ‘com.android.model.application’&lt;/p&gt;
-&lt;p&gt;model{&lt;br&gt;    android {&lt;br&gt;        compileSdkVersion 23&lt;br&gt;        buildToolsVersion “23.0.2”&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    defaultConfig {
-        applicationId &amp;quot;sqlite3.com.android.tang.androidnativesqlite3&amp;quot;
-        minSdkVersion.apiLevel 15
-        targetSdkVersion.apiLevel 23
-        versionCode 1
-        versionName &amp;quot;1.0&amp;quot;
-
-        buildConfigFields {
-            create() {
-                type &amp;quot;int&amp;quot;
-                name &amp;quot;VALUE&amp;quot;
-                value &amp;quot;1&amp;quot;
-            }
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles.add(file(&amp;quot;proguard-rules.pro&amp;quot;))
-        }
-    }
-
-    productFlavors {
-        create(&amp;quot;flavor1&amp;quot;) {
-            applicationId &amp;quot;com.app&amp;quot;
-        }
-    }
-
-    // Configures source set directory.
-    sources {
-        main {
-            java {
-                source {
-                    srcDir &amp;quot;src&amp;quot;
-                }
-            }
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;dependencies {&lt;br&gt;    compile fileTree(dir: ‘libs’, include: [‘*.jar’])&lt;br&gt;    testCompile ‘junit:junit:4.12’&lt;br&gt;    compile ‘com.android.support:appcompat-v7:23.1.1’&lt;br&gt;    compile ‘com.android.support:design:23.0.0’&lt;br&gt;}&lt;/p&gt;
-&lt;p&gt;/////////////////////&lt;/p&gt;
-&lt;p&gt;apply plugin: ‘com.android.application’&lt;/p&gt;
-&lt;p&gt;android {&lt;br&gt;    compileSdkVersion 23&lt;br&gt;    buildToolsVersion “23.0.2”&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;defaultConfig {
-    applicationId &amp;quot;sqlite3.com.android.tang.androidnativesqlite3&amp;quot;
-    minSdkVersion 15
-    targetSdkVersion 23
-    versionCode 1
-    versionName &amp;quot;1.0&amp;quot;
-}
-
-buildTypes {
-release {
-    minifyEnabled false
-    proguardFiles getDefaultProguardFile(&amp;apos;proguard-android.txt&amp;apos;), &amp;apos;proguard-rules.pro&amp;apos;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;dependencies {&lt;br&gt;    compile fileTree(dir: ‘libs’, include: [‘*.jar’])&lt;br&gt;    testCompile ‘junit:junit:4.12’&lt;br&gt;    compile ‘com.android.support:appcompat-v7:23.1.1’&lt;br&gt;    compile ‘com.android.support:design:23.0.0’&lt;br&gt;}&lt;/p&gt;
+    <content type="html">&lt;p&gt;Code name    Version    API level&lt;br&gt;(no code name)    1.0    API level 1&lt;br&gt;(no code name)    1.1    API level 2&lt;br&gt;Cupcake    1.5    API level 3, NDK 1&lt;br&gt;Donut    1.6    API level 4, NDK 2&lt;br&gt;Eclair    2.0    API level 5&lt;br&gt;Eclair    2.0.1    API level 6&lt;br&gt;Eclair    2.1    API level 7, NDK 3&lt;br&gt;Froyo    2.2.x    API level 8, NDK 4&lt;br&gt;Gingerbread    2.3 - 2.3.2    API level 9, NDK 5&lt;br&gt;Gingerbread    2.3.3 - 2.3.7    API level 10&lt;br&gt;Honeycomb    3.0    API level 11&lt;br&gt;Honeycomb    3.1    API level 12, NDK 6&lt;br&gt;Honeycomb    3.2.x    API level 13&lt;br&gt;IceCreamSandwich    4.0.1 - 4.0.2    API level 14, NDK 7&lt;br&gt;IceCreamSandwich    4.0.3    API level 15&lt;br&gt;Tags列表如下：&lt;/p&gt;
+&lt;p&gt;Build    Tag    Notes&lt;br&gt;DRC83    android-1.6_r1.1    earliest Donut version, ADP1, ADP2&lt;br&gt;DRC92    android-1.6_r1.2&lt;br&gt;DRD08    android-1.6_r1.3&lt;br&gt;DRD20    android-1.6_r1.4&lt;br&gt;DMD64    android-1.6_r1.5    latest Donut version&lt;br&gt;ESD20    android-2.0_r1    earliest Eclair version&lt;br&gt;ESD56    android-2.0.1_r1&lt;br&gt;ERD79    android-2.1_r1    Nexus One&lt;br&gt;ERE27    android-2.1_r2    Nexus One&lt;br&gt;EPE54B    android-2.1_r2.1p    Nexus One&lt;br&gt;ESE81    android-2.1_r2.1s&lt;br&gt;EPF21B    android-2.1_r2.1p2    latest Eclair version&lt;br&gt;FRF85B    android-2.2_r1    earliest Froyo version, Nexus One&lt;br&gt;FRF91    android-2.2_r1.1    Nexus One&lt;br&gt;FRG01B    android-2.2_r1.2&lt;br&gt;FRG22D    android-2.2_r1.3&lt;br&gt;FRG83    android-2.2.1_r1    Nexus One&lt;br&gt;FRG83D    android-2.2.1_r2    Nexus One&lt;br&gt;FRG83G    android-2.2.2_r1    Nexus One&lt;br&gt;FRK76    android-2.2.3_r1&lt;br&gt;FRK76C    android-2.2.3_r2    latest Froyo version&lt;br&gt;GRH55    android-2.3_r1    earliest Gingerbread version, Nexus S&lt;br&gt;GRH78    android-2.3.1_r1    Nexus S&lt;br&gt;GRH78C    android-2.3.2_r1    Nexus S&lt;br&gt;GRI40    android-2.3.3_r1    Nexus One, Nexus S&lt;br&gt;GRI54    android-2.3.3_r1.1    Nexus S&lt;br&gt;GRJ06D    android-2.3.4_r0.9    Nexus S 4G&lt;br&gt;GRJ22    android-2.3.4_r1    Nexus One, Nexus S, Nexus S 4G&lt;br&gt;GRJ90    android-2.3.5_r1    Nexus S 4G&lt;br&gt;GRK39C    android-2.3.6_r0.9    Nexus S&lt;br&gt;GRK39F    android-2.3.6_r1    Nexus One, Nexus S&lt;br&gt;GWK74    android-2.3.7_r1    latest Gingerbread version, Nexus S 4G&lt;br&gt;ITL41D    android-4.0.1_r1    earliest IceCreamSandwich version, Galaxy Nexus&lt;br&gt;ITL41D    android-4.0.1_r1.1    Galaxy Nexus&lt;br&gt;ITL41F    android-4.0.1_r1.2    Galaxy Nexus&lt;br&gt;ICL53F    android-4.0.2_r1    Galaxy Nexus&lt;br&gt;IML74K    android-4.0.3_r1    Nexus S&lt;br&gt;IML77         latest IceCreamSandwich version&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;环境说明&lt;br&gt;mac os 10.11.2&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://tools.android.com/tech-docs/new-build-system/gradle-experimental#TOC-No-support-for-using-a
+      &lt;p&gt;Code name    Version    API level&lt;br&gt;(no code name)    1.0    API level 1&lt;br&gt;(no code name)    1.1    API level 2&lt;br&gt;Cupcake    1.5    AP
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>利用Swig自动化生成JNI方法</title>
+    <link href="http://http://tangfuhao.github.io/2016/03/07/%E5%88%A9%E7%94%A8Swig%E8%87%AA%E5%8A%A8%E5%8C%96%E7%94%9F%E6%88%90JNI%E6%96%B9%E6%B3%95/"/>
+    <id>http://http://tangfuhao.github.io/2016/03/07/利用Swig自动化生成JNI方法/</id>
+    <published>2016-03-07T01:46:45.000Z</published>
+    <updated>2016-03-07T06:24:14.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.swig.org/Doc2.0/Android.html#Android_examples_intro&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.swig.org/Doc2.0/Android.html#Android_examples_intro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.swig.org/Doc2.0/Java.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.swig.org/Doc2.0/Java.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.swig.org/Doc2.0/Android.html#Android_examples_intro&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.swig.org/Doc2.0/Androi
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>android studio 配置ndk环境 利用jni创建demo</title>
+    <link href="http://http://tangfuhao.github.io/2016/03/04/android-studio-%E9%85%8D%E7%BD%AEndk%E7%8E%AF%E5%A2%83-%E5%88%A9%E7%94%A8jni%E5%88%9B%E5%BB%BAdemo/"/>
+    <id>http://http://tangfuhao.github.io/2016/03/04/android-studio-配置ndk环境-利用jni创建demo/</id>
+    <published>2016-03-04T06:59:43.000Z</published>
+    <updated>2016-03-07T08:54:37.000Z</updated>
+    
+    <content type="html">&lt;p&gt;本篇文章用来介绍最新的android studio使用ndk工程的转换&lt;br&gt;所有操作设置来自官方文档，如有更新请参考官方文档&lt;br&gt;&lt;a href=&quot;http://tools.android.com/tech-docs/new-build-system/gradle-experimental&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tools.android.com/tech-docs/new-build-system/gradle-experimental&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;环境说明&quot;&gt;&lt;a href=&quot;#环境说明&quot; class=&quot;headerlink&quot; title=&quot;环境说明&quot;&gt;&lt;/a&gt;环境说明&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;mac os 10.11.2&lt;/li&gt;
+&lt;li&gt;android studio 2.0 Beta5&lt;/li&gt;
+&lt;li&gt;ndk r9d&lt;/li&gt;
+&lt;li&gt;gradle-2.10-all.zip&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;gradle-experimental:0.6.0-beta5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;android studio（以后简称as） 在1.3 Beta1版本引入NDK支持，请确保你的as已有安装ndk support&lt;br&gt;验证方法 Preference…-&amp;gt; 搜索ndk 结果如下图所示&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个empty工程备用，用来加入ndk支持, 并将项目视图Android切换为Project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Step-1&quot;&gt;&lt;a href=&quot;#Step-1&quot; class=&quot;headerlink&quot; title=&quot;Step 1&quot;&gt;&lt;/a&gt;Step 1&lt;/h2&gt;&lt;p&gt;如果已经下载ndk，直接指定目录，否则下载ndk环境&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;下载设置ndk环境&lt;br&gt;／／图片&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;指定ndk目录&lt;br&gt;／／图片&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Step-2&quot;&gt;&lt;a href=&quot;#Step-2&quot; class=&quot;headerlink&quot; title=&quot;Step 2&quot;&gt;&lt;/a&gt;Step 2&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;修改gradle版本&lt;br&gt;修改在项目文件夹下的gradle/wrapper/gradle-wrapper.properties&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#Mon Dec 28 10:00:20 PST 2015&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;distributionBase=GRADLE_USER_HOME&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;distributionPath=wrapper/dists&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;zipStoreBase=GRADLE_USER_HOME&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;zipStorePath=wrapper/dists&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+我这里用的是目前最新版的 https\://services.gradle.org/distributions/gradle-2.10-all.zip &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;修改gradle编译工具的版本&lt;br&gt;在项目下的build.gradle文件中更改gradle版本，&lt;strong&gt;注意是项目下的build.gradle&lt;/strong&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;buildscript &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    repositories &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        jcenter()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dependencies &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        classpath &amp;apos;com.android.tools.build:gradle-experimental:0.6.0-beta5&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        // NOTE: Do not place your application dependencies here; they belong&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        // in the individual module build.gradle files&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;allprojects &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    repositories &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        jcenter()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;task clean(type: Delete) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    delete rootProject.buildDir&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里的build工具使用gradle-experimental，因为目前ndk加入还是比较不方便的实验版本，但功能其实是可用的。&lt;br&gt;我这里用的同样是最新的gradle-experimental:0.6.0-beta5&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gradle 和 gradle编译工具 版本依赖的问题&lt;br&gt;注意 gradle编译工具的版本对 gradle版本有兼容依赖的关系, 反则没有。&lt;br&gt;也就是说 比如最新的gradle-experimental:0.6.0-beta5 只有gradle-2.10-all.zip才能适用。&lt;br&gt;但我用最新的gradle-2.10-all.zip，使用低版本的gradle-experimental:0.2.0没有影响，所以这点需要注意。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;更新gradle设置可能需要下载新的文件，天朝网络可能被墙，请确保可以科学上网&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Step-3&quot;&gt;&lt;a href=&quot;#Step-3&quot; class=&quot;headerlink&quot; title=&quot;Step 3&quot;&gt;&lt;/a&gt;Step 3&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;修改app的build.gradle 或者 library的build.gradle&lt;br&gt;目前只有app工程，修改它的build.gradle文件DSL写法&lt;br&gt;不同版本gradle编译工具的DSL写法不同，这里用的是最新版本的0.6.0-beta5&lt;br&gt;如果是以前版本写法可以参考官方 &lt;a href=&quot;https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/gradle-experimental/0-4-0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/gradle-experimental/0-4-0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;修改之前的代码：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apply plugin: &amp;apos;com.android.application&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;android &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compileSdkVersion 23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    buildToolsVersion &amp;quot;23.0.2&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    defaultConfig &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        applicationId &amp;quot;com.example.android.tang.androidstudiojnidemoforndk10&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        minSdkVersion 15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        targetSdkVersion 23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        versionCode 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        versionName &amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    buildTypes &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        release &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            minifyEnabled false&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            proguardFiles getDefaultProguardFile(&amp;apos;proguard-android.txt&amp;apos;), &amp;apos;proguard-rules.pro&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dependencies &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compile fileTree(dir: &amp;apos;libs&amp;apos;, include: [&amp;apos;*.jar&amp;apos;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    testCompile &amp;apos;junit:junit:4.12&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compile &amp;apos;com.android.support:appcompat-v7:23.1.1&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;修改后的代码：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apply plugin: &amp;quot;com.android.model.application&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;model &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    android &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        compileSdkVersion 23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        buildToolsVersion &amp;quot;23.0.2&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        defaultConfig &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            applicationId &amp;quot;com.example.android.tang.androidstudiojnidemoforndk10&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            minSdkVersion.apiLevel 15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            targetSdkVersion.apiLevel 23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            versionCode 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            versionName &amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        buildTypes &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            release &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                minifyEnabled false&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                proguardFiles.add(file(&amp;quot;proguard-rules.pro&amp;quot;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sources &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            main &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                java &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    source &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        srcDir &amp;quot;src&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dependencies &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compile fileTree(dir: &amp;apos;libs&amp;apos;, include: [&amp;apos;*.jar&amp;apos;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    testCompile &amp;apos;junit:junit:4.12&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compile &amp;apos;com.android.support:appcompat-v7:23.1.1&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;** DSL的改变:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用com.android.model.application代替com.android.application&lt;/li&gt;
+&lt;li&gt;如果有创建Android aar library 用com.android.model.library代替com.android.library &lt;/li&gt;
+&lt;li&gt;配置用model { } 块包装起来&lt;/li&gt;
+&lt;li&gt;添加元素用add方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;** DSL的目前的局限性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;属性List只能接受唯一属性类型，比如你可以设置一个File使用String类型,但List&lt;file&gt;的类型列表只接受File对象。&lt;/file&gt;&lt;/li&gt;
+&lt;li&gt;创建一个buildType或productFlavor需要调用create方法,只需要换一个名字，改变一个现有的Relese和Debug的buildType，&lt;/li&gt;
+&lt;li&gt;DSL修改变量和任务功能很一般&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;** 引入NDK&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;加入ndk编译module&lt;br&gt;在app目录下的build.gradle 加入&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ndk &amp;#123;                       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    moduleName &amp;quot;native&amp;quot;         //指定生成的lib，比如此时生成native.so&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;之后为：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;model &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    android &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        compileSdkVersion 23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        buildToolsVersion &amp;quot;23.0.2&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ndk &amp;#123;                       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            moduleName &amp;quot;native&amp;quot;         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加入JNI目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在目录app/src/main下创建jni目录，然后修改build.gradle 新增Source Set：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sources &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    main &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        jni &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            source &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                srcDir &amp;quot;src&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;** 代码中生成JNI代码&lt;/p&gt;
+&lt;p&gt;在activity中加载module native，加入本地方法test()&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class MainActivity extends AppCompatActivity implements View.OnClickListener&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    static &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.loadLibrary(&amp;quot;native&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public native String test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected void onCreate(Bundle savedInstanceState) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        super.onCreate(savedInstanceState);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        setContentView(R.layout.activity_main);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        findViewById(R.id.button).setOnClickListener(this);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public void onClick(View v) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log.i(&amp;quot;####&amp;quot;,test());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;代码提示test()方法，自动生成jni代码&lt;/p&gt;
+&lt;p&gt;／／图片&lt;/p&gt;
+&lt;p&gt;编译运行，搞定！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇文章用来介绍最新的android studio使用ndk工程的转换&lt;br&gt;所有操作设置来自官方文档，如有更新请参考官方文档&lt;br&gt;&lt;a href=&quot;http://tools.android.com/tech-docs/new-build-system/gradle-ex
     
     </summary>
     
