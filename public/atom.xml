@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://http://tangfuhao.github.io/"/>
-  <updated>2016-03-07T06:24:08.000Z</updated>
+  <updated>2016-03-07T11:13:22.000Z</updated>
   <id>http://http://tangfuhao.github.io/</id>
   
   <author>
@@ -20,15 +20,108 @@
     <link href="http://http://tangfuhao.github.io/2016/03/07/Android%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E8%A1%A8%E9%80%9F%E6%9F%A5/"/>
     <id>http://http://tangfuhao.github.io/2016/03/07/Android系统版本表速查/</id>
     <published>2016-03-07T06:23:45.000Z</published>
-    <updated>2016-03-07T06:24:08.000Z</updated>
+    <updated>2016-03-07T11:13:22.000Z</updated>
     
-    <content type="html">&lt;p&gt;Code name    Version    API level&lt;br&gt;(no code name)    1.0    API level 1&lt;br&gt;(no code name)    1.1    API level 2&lt;br&gt;Cupcake    1.5    API level 3, NDK 1&lt;br&gt;Donut    1.6    API level 4, NDK 2&lt;br&gt;Eclair    2.0    API level 5&lt;br&gt;Eclair    2.0.1    API level 6&lt;br&gt;Eclair    2.1    API level 7, NDK 3&lt;br&gt;Froyo    2.2.x    API level 8, NDK 4&lt;br&gt;Gingerbread    2.3 - 2.3.2    API level 9, NDK 5&lt;br&gt;Gingerbread    2.3.3 - 2.3.7    API level 10&lt;br&gt;Honeycomb    3.0    API level 11&lt;br&gt;Honeycomb    3.1    API level 12, NDK 6&lt;br&gt;Honeycomb    3.2.x    API level 13&lt;br&gt;IceCreamSandwich    4.0.1 - 4.0.2    API level 14, NDK 7&lt;br&gt;IceCreamSandwich    4.0.3    API level 15&lt;br&gt;Tags列表如下：&lt;/p&gt;
-&lt;p&gt;Build    Tag    Notes&lt;br&gt;DRC83    android-1.6_r1.1    earliest Donut version, ADP1, ADP2&lt;br&gt;DRC92    android-1.6_r1.2&lt;br&gt;DRD08    android-1.6_r1.3&lt;br&gt;DRD20    android-1.6_r1.4&lt;br&gt;DMD64    android-1.6_r1.5    latest Donut version&lt;br&gt;ESD20    android-2.0_r1    earliest Eclair version&lt;br&gt;ESD56    android-2.0.1_r1&lt;br&gt;ERD79    android-2.1_r1    Nexus One&lt;br&gt;ERE27    android-2.1_r2    Nexus One&lt;br&gt;EPE54B    android-2.1_r2.1p    Nexus One&lt;br&gt;ESE81    android-2.1_r2.1s&lt;br&gt;EPF21B    android-2.1_r2.1p2    latest Eclair version&lt;br&gt;FRF85B    android-2.2_r1    earliest Froyo version, Nexus One&lt;br&gt;FRF91    android-2.2_r1.1    Nexus One&lt;br&gt;FRG01B    android-2.2_r1.2&lt;br&gt;FRG22D    android-2.2_r1.3&lt;br&gt;FRG83    android-2.2.1_r1    Nexus One&lt;br&gt;FRG83D    android-2.2.1_r2    Nexus One&lt;br&gt;FRG83G    android-2.2.2_r1    Nexus One&lt;br&gt;FRK76    android-2.2.3_r1&lt;br&gt;FRK76C    android-2.2.3_r2    latest Froyo version&lt;br&gt;GRH55    android-2.3_r1    earliest Gingerbread version, Nexus S&lt;br&gt;GRH78    android-2.3.1_r1    Nexus S&lt;br&gt;GRH78C    android-2.3.2_r1    Nexus S&lt;br&gt;GRI40    android-2.3.3_r1    Nexus One, Nexus S&lt;br&gt;GRI54    android-2.3.3_r1.1    Nexus S&lt;br&gt;GRJ06D    android-2.3.4_r0.9    Nexus S 4G&lt;br&gt;GRJ22    android-2.3.4_r1    Nexus One, Nexus S, Nexus S 4G&lt;br&gt;GRJ90    android-2.3.5_r1    Nexus S 4G&lt;br&gt;GRK39C    android-2.3.6_r0.9    Nexus S&lt;br&gt;GRK39F    android-2.3.6_r1    Nexus One, Nexus S&lt;br&gt;GWK74    android-2.3.7_r1    latest Gingerbread version, Nexus S 4G&lt;br&gt;ITL41D    android-4.0.1_r1    earliest IceCreamSandwich version, Galaxy Nexus&lt;br&gt;ITL41D    android-4.0.1_r1.1    Galaxy Nexus&lt;br&gt;ITL41F    android-4.0.1_r1.2    Galaxy Nexus&lt;br&gt;ICL53F    android-4.0.2_r1    Galaxy Nexus&lt;br&gt;IML74K    android-4.0.3_r1    Nexus S&lt;br&gt;IML77         latest IceCreamSandwich version&lt;/p&gt;
+    <content type="html">&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Code name&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Version API&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;level&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;(no code name)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.0&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(no code name)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.1&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cupcake&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.5&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 3, NDK 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Donut&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.6&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 4, NDK 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Eclair&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2.0&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Eclair&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2.0.1&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Eclair&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2.1&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 7, NDK 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Froyo&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2.2.x&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 8, NDK 4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gingerbread&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2.3 - 2.3.2&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 9, NDK 5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gingerbread&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2.3.3 - 2.3.7&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Honeycomb&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3.0&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Honeycomb&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3.1&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 12, NDK 6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Honeycomb&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3.2.x&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 13&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IceCreamSandwich&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;4.0.1&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 14, NDK 7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IceCreamSandwich&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;4.0.3&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;API level 15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Tags列表如下：&lt;/p&gt;
+&lt;p&gt;Build    Tag    Notes&lt;br&gt;DRC83    android-1.6_r1.1    earliest Donut version, ADP1, ADP2&lt;br&gt;DRC92    android-1.6_r1.2&lt;br&gt;DRD08    android-1.6_r1.3&lt;br&gt;DRD20    android-1.6_r1.4&lt;br&gt;DMD64    android-1.6_r1.5    latest Donut version&lt;br&gt;ESD20    android-2.0_r1        earliest Eclair version&lt;br&gt;ESD56    android-2.0.1_r1&lt;br&gt;ERD79    android-2.1_r1        Nexus One&lt;br&gt;ERE27    android-2.1_r2        Nexus One&lt;br&gt;EPE54B    android-2.1_r2.1p    Nexus One&lt;br&gt;ESE81    android-2.1_r2.1s&lt;br&gt;EPF21B    android-2.1_r2.1p2    latest Eclair version&lt;br&gt;FRF85B    android-2.2_r1        earliest Froyo version, Nexus One&lt;br&gt;FRF91    android-2.2_r1.1    Nexus One&lt;br&gt;FRG01B    android-2.2_r1.2&lt;br&gt;FRG22D    android-2.2_r1.3&lt;br&gt;FRG83    android-2.2.1_r1    Nexus One&lt;br&gt;FRG83D    android-2.2.1_r2    Nexus One&lt;br&gt;FRG83G    android-2.2.2_r1    Nexus One&lt;br&gt;FRK76    android-2.2.3_r1&lt;br&gt;FRK76C    android-2.2.3_r2    latest Froyo version&lt;br&gt;GRH55    android-2.3_r1        earliest Gingerbread version, Nexus S&lt;br&gt;GRH78    android-2.3.1_r1    Nexus S&lt;br&gt;GRH78C    android-2.3.2_r1    Nexus S&lt;br&gt;GRI40    android-2.3.3_r1    Nexus One, Nexus S&lt;br&gt;GRI54    android-2.3.3_r1.1    Nexus S&lt;br&gt;GRJ06D    android-2.3.4_r0.9    Nexus S 4G&lt;br&gt;GRJ22    android-2.3.4_r1    Nexus One, Nexus S, Nexus S 4G&lt;br&gt;GRJ90    android-2.3.5_r1    Nexus S 4G&lt;br&gt;GRK39C    android-2.3.6_r0.9    Nexus S&lt;br&gt;GRK39F    android-2.3.6_r1    Nexus One, Nexus S&lt;br&gt;GWK74    android-2.3.7_r1    latest Gingerbread version, Nexus S 4G&lt;br&gt;ITL41D    android-4.0.1_r1    earliest IceCreamSandwich version, Galaxy Nexus&lt;br&gt;ITL41D    android-4.0.1_r1.1    Galaxy Nexus&lt;br&gt;ITL41F    android-4.0.1_r1.2    Galaxy Nexus&lt;br&gt;ICL53F    android-4.0.2_r1    Galaxy Nexus&lt;br&gt;IML74K    android-4.0.3_r1    Nexus S&lt;br&gt;IML77                         latest IceCreamSandwich version&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Code name    Version    API level&lt;br&gt;(no code name)    1.0    API level 1&lt;br&gt;(no code name)    1.1    API level 2&lt;br&gt;Cupcake    1.5    AP
+      &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Code name&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Version API&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;level&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead
     
     </summary>
     
